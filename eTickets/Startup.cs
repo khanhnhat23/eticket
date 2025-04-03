@@ -2,6 +2,7 @@ using eTickets.Data;
 using eTickets.Data.Cart;
 using eTickets.Data.Services;
 using eTickets.Models;
+using eTickets.Services;
 using eTickets.Services.VNPay;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -49,6 +50,8 @@ namespace eTickets
             // Configure VNPay
             services.AddScoped<IVnPayService,VNPayService>();
 
+            // EmailSevice
+            services.AddSingleton<EmailService>();
 
             //Authentication and authorization
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
